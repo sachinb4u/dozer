@@ -66,14 +66,14 @@
         <configuration>
           <unpackBundle>${unpack-bundle}</unpackBundle>
           <instructions>
-            <Bundle-Activator>org.dozer.osgi.Activator</Bundle-Activator>
+            <!-- <Bundle-Activator>org.dozer.osgi.Activator</Bundle-Activator> -->
             <Bundle-Name>${project.artifactId}</Bundle-Name>
             <Bundle-SymbolicName>${symbolic.name}</Bundle-SymbolicName>
             <Bundle-Description>${project.name}</Bundle-Description>
             <Private-Package>${private.packages}</Private-Package>
             <Embed-Dependency>${embed-dep}</Embed-Dependency>
             <Import-Package>${import.packages}</Import-Package>
-            <DynamicImport-Package>*</DynamicImport-Package>
+            <!-- <DynamicImport-Package>*</DynamicImport-Package> -->
             <Export-Package>${export.packages}</Export-Package>
           </instructions>
         </configuration>

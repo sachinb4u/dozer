@@ -37,10 +37,25 @@ public class DefaultClassLoader implements DozerClassLoader {
 
   public Class<?> loadClass(String className)  {
     Class<?> result = null;
+ 
+	/* Try loading class from TCCL first */
+    ClassLoader tccl = Thread.currentThread().getContextClassLoader();
+	try {
+		if(tccl != null){
+			result = tccl.loadClass(className);
+			
+			if(result != null){
+				return result;
+			}
+		}
+	} catch (ClassNotFoundException e1) {
+		//ignore
+	}
+	
     try {
     	result = ClassUtils.getClass(classLoader, className);
     } catch (ClassNotFoundException e) {
-      MappingUtils.throwMappingException(e);
+       MappingUtils.throwMappingException(e);
     }
     return result;
   }

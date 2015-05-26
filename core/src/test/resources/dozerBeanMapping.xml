@@ -18,7 +18,8 @@
 -->
 <mappings xmlns="http://dozer.sourceforge.net"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+          xsi:schemaLocation="http://dozer.sourceforge.net 
+          beanmapping.xsd">
 
   <configuration>
     <stop-on-errors>true</stop-on-errors>
@@ -52,10 +53,10 @@
     <copy-by-references>
       <copy-by-reference>org.dozer.vo.NoExtendBaseObjectGlobalCopyByReference</copy-by-reference>
     </copy-by-references>
-
+	<bypassSuperMappings>true</bypassSuperMappings>
   </configuration>
 
-  <mapping wildcard="true" date-format="MM-dd-yyyy HH:mm:ss"><!-- Override top level date format default.  Defaults to wildcard = true. this means that any properties the same name between classes it will implicitly copy -->
+  <mapping wildcard="true" date-format="MM-dd-yyyy HH:mm:ss" bypassSuperMappings="true"><!-- Override top level date format default.  Defaults to wildcard = true. this means that any properties the same name between classes it will implicitly copy -->
     <class-a>org.dozer.vo.TestObject</class-a>
     <class-b>org.dozer.vo.TestObjectPrime</class-b>
 

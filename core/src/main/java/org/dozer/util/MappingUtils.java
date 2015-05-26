@@ -181,6 +181,7 @@ public final class MappingUtils {
     destination.setAllowedExceptions(source.getAllowedExceptions());
     destination.setSrcClassCreateMethod(source.getDestClassCreateMethod());
     destination.setDestClassCreateMethod(source.getSrcClassCreateMethod());
+    destination.setBypassSuperMappings(source.isBypassSuperMappings());
     if (StringUtils.isNotEmpty(source.getMapId())) {
       destination.setMapId(source.getMapId());
     }

@@ -48,6 +48,7 @@ public final class DozerConstants {
   public static final boolean DEFAULT_AUTOREGISTER_JMX_BEANS = true;
   public static final boolean DEFAULT_STATISTICS_ENABLED = false;
   public static final boolean DEFAULT_EL_ENABLED = false;
+  public static final boolean DEFAULT_BYPASS_SUPER_MAPPINGS = Boolean.FALSE;
 
   public static final String XSD_NAME = "beanmapping.xsd";
   public static final String CONFIG_FILE_SYS_PROP = "dozer.configuration"; // i.e)-Ddozer.configuration=somefile.properties

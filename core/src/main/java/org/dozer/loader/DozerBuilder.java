@@ -105,6 +105,11 @@ public class DozerBuilder {
       return this;
     }
 
+    public MappingBuilder bypassSuperMappings(Boolean value){
+      classMap.setBypassSuperMappings(value);
+      return this;
+    }
+    
     public MappingBuilder trimStrings(Boolean value) {
       classMap.setTrimStrings(value);
       return this;
@@ -518,6 +523,10 @@ public class DozerBuilder {
       }
     }
 
+    public void bypassSuperMappings(Boolean value){
+    	configuration.setBypassSuperMappings(value);
+    }
+    
     public void beanFactory(String name) {
       configuration.setBeanFactory(name);
     }

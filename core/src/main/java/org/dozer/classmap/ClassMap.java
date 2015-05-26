@@ -52,6 +52,7 @@ public class ClassMap {
   private CustomConverterContainer customConverters;
   private String mapId;
   private RelationshipType relationshipType;
+  private Boolean bypassSuperMappings;
 
   public ClassMap(Configuration globalConfiguration) {
     this.globalConfiguration = globalConfiguration;
@@ -321,6 +322,14 @@ public class ClassMap {
 
   public void setRelationshipType(RelationshipType relationshipType) {
     this.relationshipType = relationshipType;
+  }
+
+  public final boolean isBypassSuperMappings() {
+	return bypassSuperMappings != null ? bypassSuperMappings : globalConfiguration.getBypassSuperMappings().booleanValue();
+  }
+
+  public final void setBypassSuperMappings(Boolean bypassSuperMappingsPolicy) {
+	this.bypassSuperMappings = bypassSuperMappingsPolicy;
   }
 
   public DozerClass getSrcClass() {

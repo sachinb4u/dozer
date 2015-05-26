@@ -122,4 +122,11 @@ public final class TypeMappingOptions {
     };
   }
 
+	public static TypeMappingOption bypassSuperMappings(final boolean value) {
+		return new TypeMappingOption() {
+			public void apply(DozerBuilder.MappingBuilder fieldMappingBuilder) {
+				fieldMappingBuilder.bypassSuperMappings(value);
+			}
+		};
+	}
 }

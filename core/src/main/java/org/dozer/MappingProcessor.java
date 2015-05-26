@@ -167,7 +167,7 @@ public class MappingProcessor implements Mapper {
               new BeanCreationDirective(srcObj, classMap.getSrcClassToMap(), classMap.getDestClassToMap(), destType,
               classMap.getDestClassBeanFactory(), classMap.getDestClassBeanFactoryId(), classMap.getDestClassCreateMethod());
 
-      result = createByCreationDirectiveAndMap(creationDirective, classMap, srcObj, result, false, null);
+      result = createByCreationDirectiveAndMap(creationDirective, classMap, srcObj, result, classMap.isBypassSuperMappings(), null);
     } catch (Throwable e) {
       MappingUtils.throwMappingException(e);
     }

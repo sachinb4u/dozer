@@ -40,6 +40,7 @@ public class Configuration {
   private String dateFormat;
   private String beanFactory;
   private RelationshipType relationshipType;
+  private Boolean bypassSuperMappings;
 
   private final CustomConverterContainer customConverters = new CustomConverterContainer();
   private final CopyByReferenceContainer copyByReferences = new CopyByReferenceContainer();
@@ -119,6 +120,14 @@ public class Configuration {
 
   public void setRelationshipType(RelationshipType relationshipType) {
     this.relationshipType = relationshipType;
+  }
+  
+  public final Boolean getBypassSuperMappings() {
+	return bypassSuperMappings != null ? bypassSuperMappings : DozerConstants.DEFAULT_BYPASS_SUPER_MAPPINGS;
+  }
+
+  public final void setBypassSuperMappings(Boolean bypassSuperMappings) {
+	this.bypassSuperMappings = bypassSuperMappings;
   }
 
   @Override

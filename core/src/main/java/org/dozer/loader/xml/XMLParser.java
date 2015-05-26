@@ -53,6 +53,7 @@ public class XMLParser implements MappingsSource<Document> {
   private static final String REMOVE_ORPHANS = "remove-orphans";
   private static final String MAP_NULL = "map-null";
   private static final String MAP_EMPTY_STRING = "map-empty-string";
+  private static final String BYPASS_SUPER_MAPPINGS = "bypassSuperMappings";
 
   // Parsing Elements
   private static final String CONFIGURATION_ELEMENT = "configuration";
@@ -179,6 +180,10 @@ public class XMLParser implements MappingsSource<Document> {
       MappingDirection direction = MappingDirection.valueOf(mappingDirection);
       definitionBuilder.type(direction);
     }
+    if (StringUtils.isNotEmpty(getAttribute(ele, BYPASS_SUPER_MAPPINGS))) {
+      definitionBuilder.bypassSuperMappings(Boolean.valueOf(getAttribute(ele, BYPASS_SUPER_MAPPINGS)));
+    }
+    
     NodeList nl = ele.getChildNodes();
     for (int i = 0; i < nl.getLength(); i++) {
       Node node = nl.item(i);
@@ -427,6 +432,8 @@ public class XMLParser implements MappingsSource<Document> {
           parseAllowedExceptions(element, configBuilder);
         } else if (VARIABLES_ELEMENT.equals(element.getNodeName())) {
           parseVariables(element);
+        } else if (BYPASS_SUPER_MAPPINGS.equals(element.getNodeName())){
+          configBuilder.bypassSuperMappings(Boolean.valueOf(nodeValue));
         }
       }
     }

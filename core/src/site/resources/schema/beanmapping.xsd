@@ -82,6 +82,7 @@
         <element ref='t:copy-by-references' minOccurs='0'/>
         <element ref='t:allowed-exceptions' minOccurs='0'/>
         <element ref='t:variables' minOccurs='0'/>
+        <element ref='t:bypassSuperMappings' minOccurs="0"/>
       </sequence>
     </complexType>
   </element>
@@ -148,6 +149,7 @@
       <attribute name="type" type="t:type"/>
       <attribute name="relationship-type" type="t:relationship"/>
       <attribute name='map-id' type='string'/>
+      <attribute name="bypassSuperMappings" type='boolean'/>
     </complexType>
   </element>
 
@@ -388,5 +390,5 @@
   <element name='trim-strings' type="boolean"/>
   <element name='bean-factory' type="string"/>
   <element name='relationship-type' type="t:relationship"/>
-
+  <element name='bypassSuperMappings' type="boolean"/>
 </schema>
